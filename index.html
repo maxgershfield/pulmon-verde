@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulmón Verde — Playa del Carmen</title>
+  <meta name="description" content="Conservación, ciencia y comunidad en el último pulmón verde urbano-costero de Playa del Carmen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:    #081a09;
+      --earth:     #122b14;
+      --canopy:    #1e4422;
+      --teal:      #00b5af;
+      --teal-dark: #008f89;
+      --teal-light:#38e0e2;
+      --cream:     #f5f1e8;
+      --sand:      #e8dfc9;
+      --warm:      #c8b99a;
+      --text:      #1a1a18;
+      --muted:     #6b7069;
+      --white:     #ffffff;
+      --nav-h:     72px;
+      --section-pad: clamp(4rem, 8vw, 7rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITY ─────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); }
+    .centered { text-align: center; }
+    .section-pad { padding: var(--section-pad) 0; }
+
+    .label {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+    }
+    .label-light { color: var(--teal-light); }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.5rem;
+    }
+    p { line-height: 1.75; color: inherit; }
+    .lead { font-size: 1.1rem; line-height: 1.8; max-width: 72ch; }
+    strong { font-weight: 600; }
+    em { font-style: italic; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 2.25rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-primary.large { padding: 1.1rem 3rem; font-size: 0.85rem; }
+
+    .btn-outline {
+      display: inline-block;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .btn-link {
+      color: var(--teal-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .btn-link:hover { color: var(--teal); }
+
+    .card-link {
+      color: var(--teal-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: auto;
+      padding-top: 1rem;
+      transition: color 0.2s;
+    }
+    .card-link:hover { color: var(--white); }
+
+    /* ─── FADE-IN ANIMATIONS ──────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.34s; }
+    .reveal-delay-4 { transition-delay: 0.46s; }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(8, 26, 9, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.35);
+    }
+    .nav-logo { height: 44px; display: block; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal-light); }
+    .nav-links .nav-cta a {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.55rem 1.4rem;
+    }
+    .nav-links .nav-cta a:hover { background: var(--teal-dark); color: var(--white); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h); left: 0; right: 0;
+        background: rgba(8,26,9,0.98);
+        flex-direction: column;
+        padding: 2rem 1.5rem 2.5rem;
+        gap: 1.5rem;
+        transform: translateY(-110%);
+        transition: transform 0.4s ease;
+      }
+      .nav-links.open { transform: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--forest);
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .hero-video.loaded { opacity: 1; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(8,26,9,0.3) 0%,
+        rgba(8,26,9,0.5) 50%,
+        rgba(8,26,9,0.8) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+      padding: 0 1.5rem;
+      max-width: 780px;
+    }
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 1.75rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 1.2rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── MISSION ─────────────────────────────────────── */
+    #mision {
+      padding: var(--section-pad) 0;
+      background: var(--cream);
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .mission-text p { color: var(--muted); margin-bottom: 1rem; }
+    .mission-text h2 { color: var(--earth); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .stat {
+      background: var(--sand);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .stat:nth-child(2) { background: var(--earth); }
+    .stat:nth-child(2) .stat-number, .stat:nth-child(2) .stat-label { color: var(--white); }
+    .stat:nth-child(4) { background: var(--canopy); }
+    .stat:nth-child(4) .stat-number, .stat:nth-child(4) .stat-label { color: var(--white); }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--earth);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .stat:nth-child(2) .stat-label { color: var(--teal-light); }
+    .stat:nth-child(4) .stat-label { color: var(--teal-light); }
+
+    @media (max-width: 860px) {
+      .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* ─── PROGRAMS ────────────────────────────────────── */
+    #programas {
+      padding: var(--section-pad) 0;
+      background: var(--forest);
+      color: var(--white);
+    }
+    #programas h2 { color: var(--white); margin-bottom: 3rem; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+    .program-card {
+      background: var(--earth);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
+      border-top: 2px solid transparent;
+    }
+    .program-card:hover {
+      background: var(--canopy);
+      border-top-color: var(--teal);
+    }
+    .card-icon { font-size: 1.75rem; margin-bottom: 1.25rem; }
+    .program-card h3 { color: var(--white); font-size: 0.8rem; }
+    .program-card p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; flex: 1; }
+
+    @media (max-width: 1024px) {
+      .programs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .programs-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── VIDEO SECTION BASE ──────────────────────────── */
+    .video-section {
+      position: relative;
+      padding: var(--section-pad) 0;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .bg-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+    .vid-overlay {
+      position: absolute; inset: 0;
+    }
+
+    /* ─── SCIENCE ─────────────────────────────────────── */
+    #ciencia { background: var(--earth); }
+    #ciencia .vid-overlay {
+      background: linear-gradient(135deg, rgba(8,26,9,0.88) 0%, rgba(8,26,9,0.7) 100%);
+    }
+    #ciencia .container { position: relative; }
+    #ciencia h2 { color: var(--white); margin-bottom: 1.25rem; }
+    #ciencia .lead { color: rgba(255,255,255,0.78); margin-bottom: 3.5rem; }
+
+    .science-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 3.5rem;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.06);
+      border-top: 2px solid var(--teal);
+      padding: 2rem 1.75rem;
+    }
+    .pillar h4 { color: var(--teal-light); margin-bottom: 0.75rem; }
+    .pillar p { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+
+    blockquote {
+      border-left: 3px solid var(--teal);
+      padding-left: 1.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.65;
+      max-width: 72ch;
+    }
+
+    @media (max-width: 760px) {
+      .science-pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ─── UNESCO GEOPARQUE ────────────────────────────── */
+    #geoparque {
+      padding: var(--section-pad) 0;
+      background: var(--teal-dark);
+      color: var(--white);
+    }
+    #geoparque h2 { color: var(--white); }
+    #geoparque .lead { color: rgba(255,255,255,0.85); margin: 0 auto 3.5rem; }
+    .geoparque-stats {
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+    .geoparque-stats > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .big-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--white);
+      display: block;
+    }
+    .geoparque-stats span:last-child {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── UNIVERSITY EXCHANGE ─────────────────────────── */
+    #intercambio {
+      padding: var(--section-pad) 0;
+      background: var(--cream);
+    }
+    #intercambio h2 { color: var(--earth); }
+    #intercambio .lead { color: var(--muted); margin-bottom: 3rem; }
+    .exchange-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+    .exchange-detail h4 { color: var(--teal-dark); margin-bottom: 1rem; }
+    .exchange-detail ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .exchange-detail li {
+      padding-left: 1.25rem;
+      position: relative;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .exchange-detail li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+      top: 0.2em;
+    }
+    .exchange-highlight {
+      background: var(--earth);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+      min-width: 160px;
+    }
+    .exchange-highlight .big-num { color: var(--teal-light); font-size: 3.5rem; }
+    .exchange-highlight span:not(.big-num) {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .exchange-grid { grid-template-columns: 1fr; }
+      .exchange-highlight { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    }
+
+    /* ─── MAYA CULTURE ────────────────────────────────── */
+    #cultura { background: var(--forest); }
+    #cultura .vid-overlay {
+      background: linear-gradient(to right, rgba(18,43,20,0.92) 0%, rgba(8,26,9,0.7) 100%);
+    }
+    #cultura .container { position: relative; }
+    #cultura h2 { color: var(--white); margin-bottom: 1.25rem; }
+    #cultura .lead { color: rgba(255,255,255,0.75); margin-bottom: 3rem; }
+
+    .maya-values {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+    }
+    .value {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid var(--teal);
+      padding: 1.5rem 1.75rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+    .value strong { color: var(--teal-light); font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .maya-values { grid-template-columns: 1fr; }
+    }
+
+    /* ─── PARTNERS ────────────────────────────────────── */
+    #aliados {
+      padding: var(--section-pad) 0;
+      background: var(--sand);
+    }
+    #aliados h2 { color: var(--earth); margin-bottom: 3rem; }
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .partner-name {
+      background: rgba(30, 68, 34, 0.08);
+      border: 1px solid rgba(30, 68, 34, 0.2);
+      color: var(--earth);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.4rem;
+    }
+    .partner-logo {
+      max-height: 60px;
+      max-width: 220px;
+      object-fit: contain;
+      opacity: 0.7;
+      filter: saturate(0);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+    .partner-logo:hover { opacity: 1; filter: none; }
+
+    /* ─── STORE CTA ───────────────────────────────────── */
+    #tienda { background: var(--forest); }
+    #tienda .vid-overlay {
+      background: rgba(8,26,9,0.7);
+    }
+    #tienda .container { position: relative; }
+    #tienda h2 { color: var(--white); margin-bottom: 1.25rem; }
+    #tienda p { color: rgba(255,255,255,0.72); max-width: 60ch; margin: 0 auto 2.5rem; font-size: 1rem; }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contacto {
+      padding: var(--section-pad) 0;
+      background: var(--earth);
+      color: var(--white);
+    }
+    #contacto h2 { color: var(--white); margin-bottom: 0.75rem; }
+    #contacto > .container > .lead { color: rgba(255,255,255,0.65); margin-bottom: 3.5rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 2.5rem; }
+    .contact-item strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 0.5rem;
+    }
+    .contact-item a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--teal-light); }
+    address {
+      font-style: normal;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.9rem 1.1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .contact-form select { cursor: pointer; }
+    .contact-form select option { background: var(--earth); color: var(--white); }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus { border-color: var(--teal); }
+    .contact-form textarea { height: 140px; resize: vertical; }
+    .contact-form button { margin-top: 0.5rem; }
+
+    @media (max-width: 760px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* ─── PHOTO STRIP ─────────────────────────────────── */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 220px;
+      overflow: hidden;
+    }
+    .photo-strip-item {
+      overflow: hidden;
+    }
+    .photo-strip-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: saturate(0.7);
+    }
+    .photo-strip-item:hover img { transform: scale(1.05); filter: saturate(1); }
+
+    @media (max-width: 640px) { .photo-strip { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--forest);
+      padding: 3rem 0 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-logo { height: 48px; margin-bottom: 1.5rem; opacity: 0.85; }
+    footer p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 2;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--teal-light); }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav id="main-nav">
+    <a href="#hero">
+      <img src="assets/images/logo-white.png" alt="Pulmón Verde" class="nav-logo">
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#mision">Misión</a></li>
+      <li><a href="#ciencia">Ciencia</a></li>
+      <li><a href="#intercambio">Intercambio</a></li>
+      <li><a href="#cultura">Cultura</a></li>
+      <li><a href="#aliados">Aliados</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li class="nav-cta"><a href="./store/" target="_blank" rel="noopener">Tienda</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <!-- Slow aerial (same source as former "Comercio comunitario" bg): DJI_0567 -->
+      <source src="assets/video/aerial-2.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Playa del Carmen · Quintana Roo · México</span>
+      <h1 class="hero-title">PULMÓN<br>VERDE</h1>
+      <p class="hero-tagline">El Origen es la Tierra.<br>El Futuro es volver al Origen.</p>
+      <div class="hero-ctas">
+        <a href="#mision" class="btn-primary">Descubrir más</a>
+        <a href="#contacto" class="btn-outline">¿Cómo Contribuir?</a>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+
+  <!-- ─── PHOTO STRIP ─── -->
+  <div class="photo-strip">
+    <div class="photo-strip-item"><img src="assets/images/aerial-1.jpg" alt="Vista aérea"></div>
+    <div class="photo-strip-item"><img src="assets/images/flora-1.jpg" alt="Flora del sitio"></div>
+    <div class="photo-strip-item"><img src="assets/images/aerial-2.jpg" alt="Vista aérea 2"></div>
+    <div class="photo-strip-item"><img src="assets/images/flora-2.jpg" alt="Biodiversidad"></div>
+  </div>
+
+  <!-- ─── MISSION ─── -->
+  <section id="mision">
+    <div class="container section-pad">
+      <div class="mission-grid">
+        <div class="mission-text reveal">
+          <span class="label">Bienvenidos</span>
+          <h2>El último pulmón verde urbano-costero de Playa del Carmen</h2>
+          <p>Con el paso del tiempo, Playa del Carmen se ha desarrollado aceleradamente, convirtiéndose en referente turístico mundial. Como iniciativa ciudadana, <strong>PULMÓN VERDE</strong> trabaja por la conservación de los ecosistemas de esta zona natural costera, ubicada entre el Hotel Coco Beach y la Playa 88.</p>
+          <p>El <strong>Colectivo Pulmón Verde</strong> registra y estudia las especies que habitan esta zona de manglar — incluyendo la <em>Clusia flavia</em> (Maya: <strong>Chuunup</strong>), una especie endémica peninsular en peligro de extinción.</p>
+          <p>En coordinación con el <strong>Colegio Mexicano de Guías en Turismo Responsable</strong>, se promueven capacitaciones, diplomados y talleres para construir conciencia ambiental.</p>
+          <a href="#programas" class="btn-link">Ver nuestros programas →</a>
+        </div>
+        <div class="stats-grid reveal reveal-delay-2">
+          <div class="stat">
+            <span class="stat-number" data-target="300">0</span>
+            <span class="stat-label">Especies de plantas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="100">0</span>
+            <span class="stat-label">Especies animales</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="80">0</span>
+            <span class="stat-label">% Recuperación del ecosistema</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="12">0</span>
+            <span class="stat-label">Años conservando este lugar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROGRAMS ─── -->
+  <section id="programas">
+    <div class="container section-pad">
+      <span class="label-light reveal">Lo que hacemos</span>
+      <h2 class="reveal reveal-delay-1">Programas & Actividades</h2>
+      <div class="programs-grid">
+        <div class="program-card reveal reveal-delay-1">
+          <div class="card-icon">🌿</div>
+          <h3>Ecoturismo & Experiencias</h3>
+          <p>Recorridos guiados por la zona de conservación, visitas a comunidades mayas activas, experiencias astronómicas y arqueología de la Riviera Maya.</p>
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="card-icon">🔬</div>
+          <h3>Investigación Científica</h3>
+          <p>Campo de estudio para biólogos, científicos y estudiantes. Centro CESTYMA — el primero en su tipo en Playa del Carmen y en México.</p>
+          <a href="#ciencia" class="card-link">Saber más →</a>
+        </div>
+        <div class="program-card reveal reveal-delay-3">
+          <div class="card-icon">🧵</div>
+          <h3>Mercado Artesanal Maya</h3>
+          <p>Espacio para artesanos de comunidades mayas: miel de melipona, textiles, hamacas y productos naturales. Sin intermediarios — la comunidad retiene el beneficio.</p>
+          <a href="#tienda" class="card-link">Ver tienda →</a>
+        </div>
+        <div class="program-card reveal reveal-delay-4">
+          <div class="card-icon">🤝</div>
+          <h3>Voluntariado & Servicio Social</h3>
+          <p>Apoya el cuidado del sitio. Estudiantes universitarios pueden cumplir su servicio social en ecología, comunicación, diseño y otras disciplinas.</p>
+          <a href="#contacto" class="card-link">Participar →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCIENCE ─── -->
+  <section id="ciencia" class="video-section">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/video/drone-overview.mp4" type="video/mp4">
+    </video>
+    <div class="vid-overlay" style="background:linear-gradient(135deg,rgba(8,26,9,0.92),rgba(8,26,9,0.72))"></div>
+    <div class="container section-pad" style="position:relative">
+      <span class="label-light reveal">CESTYMA</span>
+      <h2 class="reveal reveal-delay-1" style="color:var(--white);max-width:60rem">Centro de Investigación en Sostenibilidad Turística y Medio Ambiente</h2>
+      <p class="lead reveal reveal-delay-2" style="color:rgba(255,255,255,0.75);margin-bottom:3.5rem">El primer centro de investigación en Playa del Carmen y el primero de su tipo en México. Busca apoyo de SECIHTI y contrapartes internacionales para establecer un campo de estudio permanente.</p>
+      <div class="science-pillars">
+        <div class="pillar reveal reveal-delay-1">
+          <h4>Biodiversidad Protegida</h4>
+          <p>Especies bajo la NOM-059 de SEMARNAT. Organismos endémicos encontrados exclusivamente en esta zona.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <h4>Cenotes & Ríos Subterráneos</h4>
+          <p>Sistemas hidrológicos únicos documentados en colaboración con Oceánotes Urbanos.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <h4>Turismo Sostenible</h4>
+          <p>La ciencia como base del marco legal. Investigación que reduce impactos negativos y fomenta el turismo responsable.</p>
+        </div>
+      </div>
+      <blockquote class="reveal">
+        "Reflexionando sobre el deterioro ambiental global, es claro que potencialmente todos somos parte del problema — aunque no todos tienen el potencial de ser parte de la solución."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ─── UNESCO ─── -->
+  <section id="geoparque">
+    <div class="container section-pad centered">
+      <span class="label-light reveal">Candidatura Internacional</span>
+      <h2 class="reveal reveal-delay-1" style="color:var(--white);margin-bottom:1rem">UNESCO Geoparque</h2>
+      <p class="lead reveal reveal-delay-2" style="margin:0 auto 3.5rem">La Riviera Maya aspira a convertirse en el <strong>tercer Geoparque de todo México</strong> — abriendo acceso a financiamiento internacional, legitimidad científica y redes globales de conservación.</p>
+      <div class="geoparque-stats reveal reveal-delay-2">
+        <div>
+          <span class="big-num">2</span>
+          <span>Geoparques activos<br>en México hoy</span>
+        </div>
+        <div>
+          <span class="big-num">3°</span>
+          <span>Sería Riviera Maya<br>con esta designación</span>
+        </div>
+        <div>
+          <span class="big-num">1°</span>
+          <span>Pulmón Verde como<br>sitio ancla del Geoparque</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── UNIVERSITY EXCHANGE ─── -->
+  <section id="intercambio">
+    <div class="container section-pad">
+      <span class="label reveal">Educación Internacional</span>
+      <h2 class="reveal reveal-delay-1">Programa de Intercambio Universitario</h2>
+      <p class="lead reveal reveal-delay-2">El primer programa de intercambio de este tipo en Playa del Carmen — uniendo universidades de Canadá y México en tres semanas de trabajo de campo, inmersión cultural y ciencia.</p>
+      <div class="exchange-grid" style="margin-top:3rem">
+        <div class="exchange-detail reveal reveal-delay-1">
+          <h4>Universidades Participantes</h4>
+          <ul>
+            <li>University of St. Mary's — Nova Scotia, Canadá <em style="color:var(--teal-dark)">(aprobado ✓)</em></li>
+            <li>Universidad de Quintana Roo (UCRO)</li>
+            <li>Universidades de Playa del Carmen</li>
+          </ul>
+        </div>
+        <div class="exchange-detail reveal reveal-delay-2">
+          <h4>Actividades del Programa</h4>
+          <ul>
+            <li>Prácticas ecológicas de campo en Pulmón Verde</li>
+            <li>Estudio de biodiversidad y especies endémicas</li>
+            <li>Visitas a zonas arqueológicas de la Riviera Maya</li>
+            <li>Inmersión en comunidades mayas activas</li>
+            <li>Astronomía, lengua maya y tradiciones mexicanas</li>
+            <li>Talleres interdisciplinarios de ecología y cultura</li>
+          </ul>
+        </div>
+        <div class="exchange-highlight reveal reveal-delay-3">
+          <span class="big-num">25</span>
+          <span>estudiantes, profesores<br>y facilitadores</span>
+          <span class="big-num">3</span>
+          <span>semanas de inmersión<br>en el campo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PHOTO STRIP 2 ─── -->
+  <div class="photo-strip">
+    <div class="photo-strip-item"><img src="assets/images/flora-3.jpg" alt="Flora"></div>
+    <div class="photo-strip-item"><img src="assets/images/aerial-3.jpg" alt="Drone"></div>
+    <div class="photo-strip-item"><img src="assets/images/boa.jpg" alt="Fauna"></div>
+    <div class="photo-strip-item"><img src="assets/images/aerial-1.jpg" alt="Vista aérea"></div>
+  </div>
+
+  <!-- ─── MAYA CULTURE ─── -->
+  <section id="cultura" class="video-section">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/video/aerial-1.mp4" type="video/mp4">
+    </video>
+    <div class="vid-overlay" style="background:linear-gradient(to right,rgba(18,43,20,0.93),rgba(8,26,9,0.72))"></div>
+    <div class="container section-pad" style="position:relative">
+      <span class="label-light reveal">Cultura & Saberes Ancestrales</span>
+      <h2 class="reveal reveal-delay-1" style="color:var(--white);max-width:55rem">Conocimiento Maya: Medicina, Ecología y Cosmología</h2>
+      <p class="lead reveal reveal-delay-2" style="color:rgba(255,255,255,0.75);margin-bottom:3rem">Los abuelos, sacerdotes y ancianos son los custodios del conocimiento. La globalización ha erosionado esta transmisión generacional. Pulmón Verde facilita su recuperación sin comercializarlo ni explotarlo.</p>
+      <div class="maya-values">
+        <div class="value reveal reveal-delay-1">
+          <strong>Comunal</strong> — El modelo maya original: círculos dentro de círculos, no jerarquías piramidales. La organización que da fuerza al colectivo.
+        </div>
+        <div class="value reveal reveal-delay-2">
+          <strong>Trueque</strong> — Intercambio genuino y recíproco entre comunidades y visitantes. Servicios y bienes con reciprocidad real.
+        </div>
+        <div class="value reveal reveal-delay-3">
+          <strong>Holístico</strong> — Ciencia, arte, ecología y espiritualidad como un solo sistema integrado de conocimiento.
+        </div>
+        <div class="value reveal reveal-delay-4">
+          <strong>Intergeneracional</strong> — Transmisión de saberes de ancianos a jóvenes como proyecto de vida y resistencia cultural.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PARTNERS ─── -->
+  <section id="aliados">
+    <div class="container section-pad centered">
+      <span class="label reveal">Alianzas Institucionales</span>
+      <h2 class="reveal reveal-delay-1">Nuestros Aliados</h2>
+      <div class="partners-grid reveal reveal-delay-2">
+        <div class="partner-name">SEMARNAT</div>
+        <div class="partner-name">UNAM</div>
+        <div class="partner-name">Universidad de Quintana Roo</div>
+        <div class="partner-name">University of St. Mary's</div>
+        <div class="partner-name">Oceánotes Urbanos</div>
+        <div class="partner-name">Juna — Red de Colectivos</div>
+        <div class="partner-name">Colegio Mexicano de Guías</div>
+        <div class="partner-name">Oficina Ciencias, Cultura y Artes PDC</div>
+      </div>
+      <img src="assets/images/partner-cenotes.png" alt="Oceánotes Urbanos" class="partner-logo reveal">
+    </div>
+  </section>
+
+  <!-- ─── STORE CTA ─── -->
+  <section id="tienda" class="video-section">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <!-- Alternate aerial (DJI_0812); hero now uses the slow drone above -->
+      <source src="assets/video/aerial-3.mp4" type="video/mp4">
+    </video>
+    <div class="vid-overlay" style="background:rgba(8,26,9,0.72)"></div>
+    <div class="container section-pad centered" style="position:relative">
+      <span class="label-light reveal">Comercio Comunitario</span>
+      <h2 class="reveal reveal-delay-1" style="color:var(--white);margin-bottom:1.25rem">Mercado Artesanal Pulmón Verde</h2>
+      <p class="reveal reveal-delay-2">Miel de melipona, textiles, hamacas, madera trabajada y productos naturales de comunidades mayas de la Riviera Maya. Cada compra sostiene directamente a las familias artesanas.</p>
+      <a href="./store/" class="btn-primary large reveal reveal-delay-3" target="_blank" rel="noopener">Visitar la Tienda →</a>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contacto">
+    <div class="container section-pad">
+      <span class="label-light reveal">Contáctanos</span>
+      <h2 class="reveal reveal-delay-1">Únete al Cambio</h2>
+      <p class="lead reveal reveal-delay-2">Voluntariado, investigación, inversión, alianzas — todas las formas de contribuir son bienvenidas.</p>
+      <div class="contact-grid" style="margin-top:3rem">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <strong>Correo electrónico</strong>
+            <a href="mailto:contacto@pulmonverdepdc.com">contacto@pulmonverdepdc.com</a>
+          </div>
+          <div class="contact-item">
+            <strong>Dirección</strong>
+            <address>
+              Chen Zubul<br>
+              Paseo del Mar Mza 14 Lote 001<br>
+              Col. Luis Donaldo Colosio<br>
+              Playa del Carmen, Solidaridad<br>
+              Quintana Roo, México &nbsp; C.P. 77710
+            </address>
+          </div>
+          <div class="contact-item">
+            <strong>Formas de participar</strong>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.9">
+              Voluntariado · Servicio social · Investigación académica<br>
+              Ecoturismo · Inversión sostenible · Alianzas institucionales
+            </p>
+          </div>
+        </div>
+        <form class="contact-form reveal reveal-delay-2" onsubmit="return false">
+          <input type="text" placeholder="Tu nombre" autocomplete="name">
+          <input type="email" placeholder="Tu correo electrónico" autocomplete="email">
+          <select>
+            <option value="">Motivo del contacto…</option>
+            <option>Voluntariado / Servicio Social</option>
+            <option>Investigación / Academia</option>
+            <option>Ecoturismo y Experiencias</option>
+            <option>Inversión / Alianzas</option>
+            <option>Mercado Artesanal</option>
+            <option>Programa de Intercambio</option>
+            <option>Otro</option>
+          </select>
+          <textarea placeholder="Tu mensaje…"></textarea>
+          <button type="submit" class="btn-primary">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <img src="assets/images/logo-white.png" alt="Pulmón Verde" class="footer-logo">
+      <p>© 2026 Pulmón Verde Playa del Carmen &nbsp;·&nbsp; Conservación, Ciencia y Comunidad</p>
+      <p>Moce Yax Kuxtal A.C. &nbsp;·&nbsp; <a href="mailto:contacto@pulmonverdepdc.com">contacto@pulmonverdepdc.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav: scroll effect + mobile menu ── */
+    const nav = document.getElementById('main-nav');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    /* ── Video: fade in after load ── */
+    document.querySelectorAll('.hero-video').forEach(v => {
+      if (v.readyState >= 3) { v.classList.add('loaded'); }
+      else { v.addEventListener('canplay', () => v.classList.add('loaded'), { once: true }); }
+    });
+
+    /* ── Reveal on scroll ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Stat counters ── */
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || (target >= 100 ? '+' : target === 80 ? '%' : '');
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const val = Math.floor(p * p * target);
+          el.textContent = val + (p >= 1 ? suffix : '');
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const t = parseInt(el.dataset.target, 10);
+      el.dataset.suffix = t >= 100 ? '+' : t === 80 ? '%' : '';
+      counterObs.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Source site: https://www.pulmonverdepdc.com/
+Snapshot date: 2026-04-07 (local machine time when scrape ran)
+
+Contents:
+- index.html — HTML as served from the homepage (absolute URLs to the live site).
+- index-offline.html — same HTML with pulmonverdepdc.com URLs rewritten for local file viewing (open from this folder).
+- wp-content/, wp-includes/, and top-level section folders — assets and HTML pulled from same-origin links on the homepage (WordPress / BoldGrid / plugins).
+- tools/scrape_pulmon_home.py — re-run to refresh: python3 tools/scrape_pulmon_home.py
+
+Notes:
+- Third-party assets (Ecwid, Google Fonts, CloudFront, etc.) still reference the live internet; some features will only work online.
+- A few Bookly .webp image URLs returned 404 on the server; everything else from the run completed OK.
